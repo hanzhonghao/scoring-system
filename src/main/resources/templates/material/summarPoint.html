@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>分数汇总</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body>
+<h1>评分汇总</h1>
+<div class="with:80%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>汇总分数</th>
+        </tr>
+        </thead>
+        <tbody>
+                <tr th:each="summarPoint : ${summarPoints}">
+                    <td th:text="${summarPoint.point}">材料名称</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-2 control-label">
+        <a href="/listMaterial" th:href="@{/listMaterial}" class="btn btn-info">返回</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>userList</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<br/>
+<h1>材料评分列表</h1>
+<br/><br/>
+<div class="with:80%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>材料编号</th>
+            <th>材料名称</th>
+            <th>材料描述</th>
+            <th>分数</th>
+            <th>备注</th>
+            <th>编辑</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="material : ${materials}">
+            <th scope="row" th:text="${material.id}">1</th>
+            <td th:text="${material.materialName}">材料名称</td>
+            <td th:text="${material.materialDesc}">材料描述</td>
+            <td th:text="${material.point}">材料分数</td>
+            <td th:text="${material.comment}">这是备注</td>
+            <td><a th:href="@{/toEdit(id=${material.id})}">编辑</a></td>
+            <td><a th:href="@{/delete(id=${material.id})}">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-2 control-label">
+        <a href="/toAdd" th:href="@{/toAdd}" class="btn btn-info">添加材料</a>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-2">
+        <a href="/summar" th:href="@{/summar}" class="btn btn-info">评分汇总</a>
+    </div>
+</div>
+
+</body>
+</html>
